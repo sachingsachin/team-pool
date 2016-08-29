@@ -21,7 +21,7 @@ CREATE TABLE teamwork.Products (
     name VARCHAR(128),
     started DATE,
     brief_description VARCHAR(512),
-	product_email VARCHAR(128),
+    product_email VARCHAR(128),
     slack_channel VARCHAR(128),
     jira_link VARCHAR(128),
     -- Open-source components (link to other product-detail pages)
@@ -44,19 +44,22 @@ CREATE TABLE teamwork.Teams (
 );
 
 CREATE TABLE teamwork.User_Product_Mapping (
+    User_Product_Mapping_Id VARCHAR(40),
     user_id VARCHAR(40),
     product_id VARCHAR(40),
     role VARCHAR(64),
+    PRIMARY KEY (User_Product_Mapping_Id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-	FOREIGN KEY (product_id) REFERENCES Products(product_id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id),
     UNIQUE (user_id, product_id)
 );
 
 CREATE TABLE teamwork.Product_Team_Mapping (
+    Product_Team_Mapping_Id VARCHAR(40),
     product_id VARCHAR(40),
     team_id VARCHAR(40),
-	FOREIGN KEY (product_id) REFERENCES Products(product_id),
+    PRIMARY KEY (Product_Team_Mapping_Id),
+    FOREIGN KEY (product_id) REFERENCES Products(product_id),
     FOREIGN KEY (team_id) REFERENCES Teams(team_id),
     UNIQUE (product_id, team_id)
 );
-

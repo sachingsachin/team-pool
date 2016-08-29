@@ -12,10 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.prismoskills.persistence.ProductEntity;
 import com.prismoskills.persistence.ProductManager;
+import com.prismoskills.persistence.ProductTeamMappingEntity;
+import com.prismoskills.persistence.ProductTeamMappingManager;
 import com.prismoskills.persistence.TeamEntity;
 import com.prismoskills.persistence.TeamManager;
 import com.prismoskills.persistence.UserEntity;
 import com.prismoskills.persistence.UserManager;
+import com.prismoskills.persistence.UserProductMappingEntity;
+import com.prismoskills.persistence.UserProductMappingManager;
 import com.prismoskills.util.Utils;
 
 public class HelloWorldServlet extends HttpServlet {
@@ -40,11 +44,32 @@ public class HelloWorldServlet extends HttpServlet {
         TeamManager.get().put(team);
         List<TeamEntity> teams = TeamManager.get().selectStar();
 
+        // Put and get User_Product_Mapping
+        UserProductMappingEntity upMapping = new UserProductMappingEntity(user.getId(), product.getId());
+        UserProductMappingManager.get().put(upMapping);
+        List<UserProductMappingEntity> upMappings = UserProductMappingManager.get().selectStar();
+
+        // Put and get Product_Team_Mapping
+        ProductTeamMappingEntity ptMapping = new ProductTeamMappingEntity(product.getId(), team.getId());
+        ProductTeamMappingManager.get().put(ptMapping);
+        List<ProductTeamMappingEntity> ptMappings = ProductTeamMappingManager.get().selectStar();
+
         // Serialize and send JSON
-        Map objMap = Utils.createMap(new Object[]{"users", users, "prodcuts", products, "teams", teams});
+        Map objMap = Utils.createMap(new Object[]{
+                "users", users,
+                "prodcuts", products,
+                "teams", teams,
+                "UserProductMappings", upMappings,
+                "ProductTeamMappings", ptMappings
+            });
         Utils.sendJsonResponse(response, objMap, true);
 
-        // Delete each new entity
+        //UserProductMappingManager.get().deleteAll(upMappings.toArray());
+        UserProductMappingManager.get().deleteById(upMapping.getId());
+
+        //ProductTeamMappingManager.get().deleteAll(ptMappings.toArray());
+        ProductTeamMappingManager.get().deleteById(ptMapping.getId());
+
         //UserManager.get().deleteAll(users.toArray());
         UserManager.get().deleteById(user.getId());
 

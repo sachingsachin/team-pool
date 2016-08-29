@@ -31,6 +31,8 @@ public class BaseManager<Entity extends BaseEntity> {
     public static QUserEntity quserEntity = QUserEntity.userEntity;
     public static QProductEntity qproductEntity = QProductEntity.productEntity;
     public static QTeamEntity qteamEntity = QTeamEntity.teamEntity;
+    public static QUserProductMappingEntity quserProductMappingEntity = QUserProductMappingEntity.userProductMappingEntity;
+    public static QProductTeamMappingEntity qproductTeamMappingEntity = QProductTeamMappingEntity.productTeamMappingEntity;
 
     protected BaseManager (Class<Entity> entityClass, EntityPathBase<Entity> qpath) {
         this.emf = Persistence.createEntityManagerFactory("teamwork");
