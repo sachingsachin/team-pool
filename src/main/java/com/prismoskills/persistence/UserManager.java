@@ -17,5 +17,4 @@ public class UserManager extends BaseManager<UserEntity> {
     public List<UserEntity> selectStar() {
         return em.createQuery("FROM Users").getResultList();
     }
-
 }

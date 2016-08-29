@@ -29,6 +29,8 @@ public class BaseManager<Entity extends BaseEntity> {
 
     // Qpaths of all the entities for easy reference in all the derived classes
     public static QUserEntity quserEntity = QUserEntity.userEntity;
+    public static QProductEntity qproductEntity = QProductEntity.productEntity;
+    public static QTeamEntity qteamEntity = QTeamEntity.teamEntity;
 
     protected BaseManager (Class<Entity> entityClass, EntityPathBase<Entity> qpath) {
         this.emf = Persistence.createEntityManagerFactory("teamwork");
@@ -75,4 +77,29 @@ public class BaseManager<Entity extends BaseEntity> {
         return entity;
     }
 
+    public Entity deleteById(String id) {
+        WrapperEM wem = createEntityManager();
+        Entity entity = wem.em.find(entityClass, id);
+        if (entity != null) {
+            wem.em.remove(entity);
+        }
+        closeEntityManager(wem);
+        return entity;
+    }
+
+    public void deleteAll(Object [] entities) {
+        WrapperEM wem = createEntityManager();
+        try {
+            for (Object e: entities) {
+                Entity entity = wem.em.find(entityClass, ((Entity)e).getId());
+                if (entity != null) {
+                    wem.em.remove(entity);
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Exception while deleting", e);
+        } finally {
+            closeEntityManager(wem);
+        }
+    }
 }
