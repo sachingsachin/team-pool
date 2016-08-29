@@ -1,6 +1,10 @@
 # team-pool
 
-Run as `mvn jetty:run` and visit [http://localhost:8080/hello](http://localhost:8080/hello)
+Run as `mvn jetty:run` and visit:
+
+1. [http://localhost:8080/hello](http://localhost:8080/hello)
+2. [http://localhost:8080/metrics](http://localhost:8080/metrics)
+
 
 You can also run the war file as:
 ```

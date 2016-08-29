@@ -71,6 +71,12 @@
       <artifactId>metrics-servlet</artifactId>
       <version>3.1.2</version>
     </dependency>
+    <!-- Metrics Servlet -->
+    <dependency>
+      <groupId>com.codahale.metrics</groupId>
+      <artifactId>metrics-servlets</artifactId>
+      <version>3.0.2</version>
+    </dependency>
 
     <!-- Core Jackson -->
     <dependency>
