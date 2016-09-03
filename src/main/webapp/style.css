@@ -10,3 +10,8 @@ html {
     height: 100%;
 }
 
+/*
+#productsTbl tr:first-child td {
+    vertical-align: top;
+}
+*/

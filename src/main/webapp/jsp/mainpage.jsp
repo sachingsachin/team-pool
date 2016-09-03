@@ -9,10 +9,17 @@
 
     <title>Team-pool</title>
     <%@include file="/jsp/includes/JsAndCssIncludes.jsp" %>
+
+    <link rel="stylesheet" type="text/css" href="uiLibs/tablesorter/themes/blue/style.css" />
+    <script type="text/javascript" src="/uiLibs/tablesorter/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/js/mainpage.js"></script>
   </head>
 
   <body>
     <%@include file="/jsp/includes/navbar.jsp" %>
+
+    <div id="productsDiv">
+    </div>
 
     <%@include file="/jsp/includes/footer-bar.jsp" %>
   </body>

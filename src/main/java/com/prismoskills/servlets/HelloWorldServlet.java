@@ -57,7 +57,7 @@ public class HelloWorldServlet extends HttpServlet {
         // Serialize and send JSON
         Map objMap = Utils.createMap(new Object[]{
                 "users", users,
-                "prodcuts", products,
+                "products", products,
                 "teams", teams,
                 "UserProductMappings", upMappings,
                 "ProductTeamMappings", ptMappings
