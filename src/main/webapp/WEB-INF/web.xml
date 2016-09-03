@@ -19,6 +19,19 @@
     </servlet-mapping>
 
 
+    <!--******************-->
+    <!--   MainPage JSP   -->
+    <!--******************-->
+    <servlet>
+        <servlet-name>mainpage.jsp</servlet-name>
+        <jsp-file>/jsp/mainpage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mainpage.jsp</servlet-name>
+        <url-pattern>/mainpage/*</url-pattern>
+    </servlet-mapping>
+
+
     <!--*******************-->
     <!-- Metrics Listeners -->
     <!--*******************-->

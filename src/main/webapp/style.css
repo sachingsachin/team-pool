@@ -1,0 +1,12 @@
+body {
+	background-color: #FFFFFF;
+	color: black ;
+	font-family: verdana, palatino, Helvetica;
+	height: 100%;
+	display: block;
+}
+
+html {
+    height: 100%;
+}
+
