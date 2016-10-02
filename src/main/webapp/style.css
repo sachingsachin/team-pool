@@ -17,6 +17,17 @@ textarea, input {
 	padding: 2px 5px 2px 5px;
 }
 
+.member-name {
+	font-size: large;
+}
+
+.member-img {
+	width: 100px;
+	height: 100px;
+	border-radius: 3px;
+	margin:auto;
+}
+
 /*
 #productsTbl tr:first-child td {
     vertical-align: top;

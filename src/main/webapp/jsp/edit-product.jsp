@@ -18,8 +18,9 @@
   <body>
     <%@include file="/jsp/includes/navbar.jsp" %>
 
-    <div id="productsDiv" style="width:90%; margin:auto">
-      <form id="editProductForm"></form>
+    <div id="editProductForm" style="width:90%; margin:auto">
+    </div>
+    <div id="editMembersForm" style="width:90%; margin:auto">
     </div>
 
     <%@include file="/jsp/includes/footer-bar.jsp" %>

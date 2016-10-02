@@ -43,15 +43,13 @@ function successProductDetail (data, responseType, xhrObject) {
 		return;
 	}
 
-	var formEle = $("#editProductForm")[0];
-    var tbl = document.createElement ("TABLE");
-    $("#editProductForm")[0].appendChild(tbl);
-    $(tbl).attr("id", "productTbl");
+	/********** Product Detail ************/
+	var productTbl = document.createElement ("TABLE");
+    $("#editProductForm")[0].appendChild(productTbl);
+    $(productTbl).attr("id", "productTbl");
 
-    var row = tbl.insertRow(-1); var cell = row.insertCell(-1);
+    var row = productTbl.insertRow(-1); var cell = row.insertCell(-1);
 	showField(cell, "Name", "text", "name", data.product.name);
-
-
 
 	cell = row.insertCell(-1);
 	showField(cell, "Email", "text", "productEmail", data.product.productEmail);
@@ -59,22 +57,47 @@ function successProductDetail (data, responseType, xhrObject) {
 	cell = row.insertCell(-1);
 	showField(cell, "Slack", "text", "slackChannel", data.product.slackChannel);
 
-	row = tbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 3;
-	showField(cell, "Detailed docs", "textarea", "detailedDocsUrl", data.product.detailedDocsUrl);
+	cell = row.insertCell(-1);
+	showField(cell, "Jira", "text", "jiraLink", data.product.jiraLink);
 
-	row = tbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 3;
+	row = productTbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 4;
 	showField(cell, "Description", "textarea", "briefDescription", data.product.briefDescription);
 
-	row = tbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 3;
+	row = productTbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 4;
+	showField(cell, "Detailed docs", "textarea", "detailedDocsUrl", data.product.detailedDocsUrl);
+
+	row = productTbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 4;
 	showField(cell, "Github repos", "textarea", "githubRepos", data.product.githubRepos);
 
-	row = tbl.insertRow(-1); cell = row.insertCell(-1);
-	showField(cell, "Quick start examples", "text", "quickStartExampleLinks", data.product.quickStartExampleLinks);
-
-	row = tbl.insertRow(-1); cell = row.insertCell(-1);
-	showField(cell, "Slack", "text", "slackChannel", data.product.slackChannel);
+	row = productTbl.insertRow(-1); cell = row.insertCell(-1); cell.colSpan = 4;
+	showField(cell, "Quick start examples", "textarea", "quickStartExampleLinks", data.product.quickStartExampleLinks);
 
 	$("#productTbl > tbody > tr > td").css({"padding":"7px"});
+	$("#productTbl").css({"margin":"auto", "width":"1000px"});
+
+	/********** Members Detail ************/
+	var membersTbl = document.createElement ("TABLE");
+    $("#editMembersForm")[0].appendChild(membersTbl);
+    $(membersTbl).attr("id", "membersTbl");
+
+    for (var i=0; i<data.users.length; i++) {
+    	var user = data.users[i];
+    	if (i%4 == 0) {
+    		row = membersTbl.insertRow(-1);
+    	}
+    	cell = row.insertCell(-1);
+    	$(cell).html(
+    			"<div class='member-name'>" +
+    			  "<a href=/view-user/" + user.id1 + ">" + user.fname + " " + user.lname + "</a>" +
+    			  "<span class='glyphicon glyphicon-remove' style='color:red; font-size:0.75em; position:relative; top:-2px; left:30px'></span>" +
+    			"</div>" +
+    			"<input type=text value='" + user.status + "'>" +
+    			"<img src='' class='member-img'>"
+        );
+    }
+
+    $("#membersTbl > tbody > tr > td").css({"padding":"7px"});
+	$("#membersTbl").css({"margin":"auto", "width":"1000px"});
 }
 
 /**
