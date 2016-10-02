@@ -5,7 +5,8 @@
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                      data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
@@ -23,22 +24,27 @@
 	        <button type="submit" class="btn btn-default">Submit</button>
 	      </form>
 
+              <!--
 	      <div id="notifications-div">
-	      		<a href="javascript:void(0)" id="notification-icon" class="notification-icon dropdown-toggle" data-toggle="dropdown" title="notifications">
-					<span class="glyphicon glyphicon-bell"></span>
-				</a>
-				<span id="notification-counts"></span>
-				<ul class="dropdown-menu" id="notification-dropdown"></ul>
+	      		<a href="javascript:void(0)" id="notification-icon"
+                           class="notification-icon dropdown-toggle"
+                           data-toggle="dropdown" title="notifications">
+				<span class="glyphicon glyphicon-bell"></span>
+			</a>
+			<span id="notification-counts"></span>
+			<ul class="dropdown-menu" id="notification-dropdown"></ul>
 	      </div>
+              -->
 	      
 	    </div><!-- /.navbar-collapse -->
 	    <div class="collapse navbar-collapse navbar-right">
 	         <ul class="nav navbar-nav navbar-right help-navbar">
 		        <li class="dropdown">
-	      		<a href="javascript:void(0)" id="notification-icon" class="header-user-icon dropdown-toggle" data-toggle="dropdown">
-					<span class="glyphicon glyphicon-user"></span>
-					<span class="caret"></span>
-				</a>
+	      		<a href="javascript:void(0)" id="notification-icon"
+                           class="header-user-icon dropdown-toggle" data-toggle="dropdown">
+				<span class="glyphicon glyphicon-user"></span>
+				<span class="caret"></span>
+			</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="/profile">Profile</a></li>
 		            <li><a href="#">Settings</a></li>
@@ -63,10 +69,13 @@
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
 		          		aria-haspopup="true" aria-expanded="false">Add <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		            <li><a href="/product/edit">Product</a></li>
-		            <li><a href="/team/edit">Team</a></li>
+				<!--
+		            <li><a href="#" onclick="addProduct();return false;">Product</a></li>
+				-->
+		            <li><a href="#" data-toggle="modal" data-target="#addProductModal">Product</a></li>
+		            <li><a href="#" onclick="addTeam();return false;">Team</a></li>
 		            <li class="divider"></li>
-		            <li><a href="/user/edit">User</a></li>
+		            <li><a href="#" onclick="addUser();return false;">User</a></li>
 		          </ul>
 		        </li>
 		     </ul>

@@ -39,6 +39,7 @@ function successProductSummary(data, responseType, xhrObject) {
     addHeaderCell(row, "detailed docs");
     addHeaderCell(row, "github repos");
     addHeaderCell(row, "quick start examples");
+    addHeaderCell(row, "edit");
 
     var tbody = document.createElement('tbody');
     tbl.appendChild(tbody);
@@ -56,7 +57,16 @@ function successProductSummary(data, responseType, xhrObject) {
         row.insertCell(-1).innerHTML = product.detailedDocsUrl;
         row.insertCell(-1).innerHTML = product.githubRepos;
         row.insertCell(-1).innerHTML = product.quickStartExampleLinks;
+        var editBtn = '<a href=/edit-product/' + product.name.replace(/ /g, '-') + ' target=_blank><span class="glyphicon glyphicon-pencil" style="color:blue;padding-left:5px"></span></a>'
+        var rmBtn   = '<a href=#><span class="glyphicon glyphicon-remove" style="color:red;padding-left:5px"></span></a>'
+        row.insertCell(-1).innerHTML = editBtn + rmBtn;
     }
 
     $("#productsTbl").tablesorter();
+
+    $(".glyphicon-remove").on('click', removeProduct);
+}
+
+function removeProduct() {
+    console.log("Remove not implemented");
 }

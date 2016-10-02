@@ -13,5 +13,6 @@
 
 </footer>
 
-<!-- Common JS/CSS files -->
-<script type="text/JavaScript" src="/js/utils.js"></script>
+
+<div id="dialogDiv">
+</div>

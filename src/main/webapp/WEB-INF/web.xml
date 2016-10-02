@@ -10,12 +10,12 @@
     <!--   POC Servlet     -->
     <!--*******************-->
     <servlet>
-        <servlet-name>HelloWorld</servlet-name>
-        <servlet-class>com.prismoskills.servlets.HelloWorldServlet</servlet-class>
+        <servlet-name>TestApisServlet</servlet-name>
+        <servlet-class>com.prismoskills.servlets.TestApisServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>HelloWorld</servlet-name>
-        <url-pattern>/hello/*</url-pattern>
+        <servlet-name>TestApisServlet</servlet-name>
+        <url-pattern>/test-apis</url-pattern>
     </servlet-mapping>
 
 
@@ -29,6 +29,19 @@
     <servlet-mapping>
         <servlet-name>mainpage.jsp</servlet-name>
         <url-pattern>/mainpage/*</url-pattern>
+    </servlet-mapping>
+
+
+    <!--**********************-->
+    <!--   Edit-Product JSP   -->
+    <!--**********************-->
+    <servlet>
+        <servlet-name>edit-product.jsp</servlet-name>
+        <jsp-file>/jsp/edit-product.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit-product.jsp</servlet-name>
+        <url-pattern>/edit-product/*</url-pattern>
     </servlet-mapping>
 
 

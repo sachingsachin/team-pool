@@ -22,7 +22,7 @@ import com.prismoskills.persistence.UserProductMappingEntity;
 import com.prismoskills.persistence.UserProductMappingManager;
 import com.prismoskills.util.Utils;
 
-public class HelloWorldServlet extends HttpServlet {
+public class TestApisServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -64,19 +64,19 @@ public class HelloWorldServlet extends HttpServlet {
             });
         Utils.sendJsonResponse(response, objMap, true);
 
-        //UserProductMappingManager.get().deleteAll(upMappings.toArray());
         UserProductMappingManager.get().deleteById(upMapping.getId());
+        //UserProductMappingManager.get().deleteAll(upMappings.toArray());
 
-        //ProductTeamMappingManager.get().deleteAll(ptMappings.toArray());
         ProductTeamMappingManager.get().deleteById(ptMapping.getId());
+        //ProductTeamMappingManager.get().deleteAll(ptMappings.toArray());
 
-        //UserManager.get().deleteAll(users.toArray());
         UserManager.get().deleteById(user.getId());
+        //UserManager.get().deleteAll(users.toArray());
 
-        //ProductManager.get().deleteAll(products.toArray());
         ProductManager.get().deleteById(product.getId());
+        //ProductManager.get().deleteAll(products.toArray());
 
-        //TeamManager.get().deleteAll(teams.toArray());
         TeamManager.get().deleteById(team.getId());
+        //TeamManager.get().deleteAll(teams.toArray());
     }
 }

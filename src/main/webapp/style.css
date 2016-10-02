@@ -10,6 +10,13 @@ html {
     height: 100%;
 }
 
+textarea, input {
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px lightgray;
+	padding: 2px 5px 2px 5px;
+}
+
 /*
 #productsTbl tr:first-child td {
     vertical-align: top;

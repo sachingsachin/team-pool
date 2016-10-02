@@ -1,5 +1,6 @@
 package com.prismoskills.persistence;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -11,6 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.Timer;
+import com.mysema.query.jpa.impl.JPAQuery;
+import com.mysema.query.types.Predicate;
 import com.mysema.query.types.path.EntityPathBase;
 import com.prismoskills.util.Globals;
 
@@ -77,6 +80,18 @@ public class BaseManager<Entity extends BaseEntity> {
         Entity entity = wem.em.find(entityClass, id);
         closeEntityManager(wem);
         return entity;
+    }
+
+    public List<Entity> query(Predicate where) {
+        WrapperEM wem = createEntityManager();
+
+        JPAQuery query = new JPAQuery(wem.em);
+        List<Entity> results = query.from(qpath)
+                .where(where)
+                .fetchAll().list(qpath);
+
+        closeEntityManager(wem);
+        return results;
     }
 
     public Entity deleteById(String id) {

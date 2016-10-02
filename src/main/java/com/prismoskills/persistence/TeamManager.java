@@ -17,4 +17,8 @@ public class TeamManager extends BaseManager<TeamEntity> {
     public List<TeamEntity> selectStar() {
         return em.createQuery("FROM Teams").getResultList();
     }
+
+    public List<TeamEntity> getByIds(List<String> ids) {
+        return query(qteamEntity.id.in(ids));
+    }
 }

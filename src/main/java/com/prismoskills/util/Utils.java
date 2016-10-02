@@ -93,4 +93,22 @@ public class Utils {
             logger.error(e.getLocalizedMessage(), e);
         }
     }
+
+    public static void sendError(HttpServletResponse response, int responseCode, String msg) {
+        logger.error (msg);
+        response.setContentType("application/json");
+        response.setStatus(responseCode);
+        try {
+            System.err.println("ERROR: " + msg);
+            response.getWriter().println("{error:\"" + msg+ "\"}");
+        }
+        catch (Exception e) {
+            logger.error(e.getLocalizedMessage(), e);
+        }
+    }
+
+    public static void sendError(HttpServletResponse response, Exception e) {
+        logger.error(e.getLocalizedMessage(), e);
+        sendError(response, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, e.getLocalizedMessage());
+    }
 }

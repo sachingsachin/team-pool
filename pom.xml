@@ -141,7 +141,7 @@
           <execution><goals><goal>java</goal></goals></execution>
         </executions>
         <configuration>
-          <mainClass>com.prismoskills.servlets.HelloWorldServlet</mainClass>
+          <mainClass>com.prismoskills.servlets.TestApisServlet</mainClass>
         </configuration>
       </plugin>
 
